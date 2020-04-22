@@ -18,7 +18,7 @@ import {
 
 export default function Main(){
 
-    const [acn1,setAcn1] = useState('active') // assumes link 1 is default active
+    const [acn1,setAcn1] = useState('') 
     const [acn2,setAcn2] = useState('')
     const [acn3,setAcn3] = useState('')
 
