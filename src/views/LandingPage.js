@@ -1,9 +1,15 @@
-import React from "react";
-import Button from '@material-ui/core/Button';
-import  {Link} from "react-router-dom";
-import { withStyles} from '@material-ui/core/styles';
+import React,{useEffect} from "react";
+import {
+    Link,
+  } from "react-router-dom";
 
-export default function LandingPage(){
+import { withStyles} from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import { Container } from 'reactstrap';
+
+
+export default function LandingPage(props){
+
     
     const BootstrapButton = withStyles({
 
@@ -17,8 +23,9 @@ export default function LandingPage(){
             padding: '6px 12px',
             border: '1px solid',
             lineHeight: 1.5,
-            backgroundColor: '#0063cc',
-            borderColor: '#0063cc',
+            backgroundColor: 'white',
+            borderColor: 'black',
+            padding:'2%',
             fontWeight:600,
             fontFamily: [
                 'Montserrat',
@@ -43,21 +50,22 @@ export default function LandingPage(){
 
     return(
         <>
-        <div className="LandingContainer2">
-
+        <div className="LandingContainerFullWidth">
 
             <div className="LandingTextContainer">
-            <h2 className="LandingTitle">Full-Stack Developer</h2>
+                <h2 className="LandingTitle">Full-Stack Developer</h2>
 
-            <h4 className="LandingSubTitle">
-                "Changing the world, one line at a time"
-                </h4>
-            <BootstrapButton variant="contained" component={Link } to="/projects"> VIEW MY WORK</BootstrapButton>
+                <h4 className="LandingSubTitle">
+                    "Changing the world, one line at a time"
+                    </h4>
+                
+                <div className="ButtonContainer">
+                <BootstrapButton variant="contained" component={Link} to="/projects"  onClick={props.onClick()} > VIEW MY WORK</BootstrapButton>
+                </div>
 
             </div>
 
-        </div>
-
-        </>
+        </div> 
+        </>      
     )
 }

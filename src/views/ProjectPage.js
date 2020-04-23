@@ -1,71 +1,148 @@
-import React from "react";
+import React,{useState} from "react";
 import { Container, Row, Col } from 'reactstrap';
+import {
+    NavLink,
+  } from "react-router-dom";
+
+
+
+
 
 export default function ProjectPage(){
 
+    const [hovered, setHovered] = useState(null);
+
     return(
         <>
-        <div >
         <Container>
-      <Row>
-        <Col xs="6">
-        <div style={{padding:'3%'}}>
 
-        <Intro/>
-        <Project1/>
-        <Project1/>
+        <Row>
+            <Col sm="6" xs="12">
+            <p>
+            Here is a collection of some of the projects I have worked on recently.
+            Want to see more?(contact me link)
+            </p>
 
-        </div>
+            <b> ADD LOGOS Of core things 
+                e.g. Fast, Responsive, Intuitive, Dynamic 
+            </b>
 
-        </Col>
+            <Project
+                projectID="1"
+                href=""
+                image={require("../assets/images/testimage.jpeg")}
+                alt={""}
+                hovered={hovered}
+                onMouseEnter={()=>setHovered("1")}
+                onMouseLeave={()=>setHovered(null)}
+                ProjectSummary="How might we integrate deep learning into our site?"
+                ProjectTitle="HarvestMate: Apple Prediction"
+                ProjectLink="harvestmate"
+                />
+  
+            </Col>
 
-        <Col xs="6">
-        <div style={{padding:'3%'}}>
+            <Col sm="6" xs="12">
+            <Project
+                projectID="4"
+                image={require("../assets/images/testimage.jpeg")}
+                alt={""}
+                hovered={hovered}
+                onMouseEnter={()=>setHovered("4")}
+                onMouseLeave={()=>setHovered(null)}
+                ProjectSummary="TODO Machine learning Project"
+                ProjectTitle="TODO Machine learning Project"
+                ProjectLink="project4"
+                />    
+            </Col>
+        </Row>
 
-        <Project1/>
-        <Project1/>
 
-        </div>
-        </Col>
 
-      </Row>
+        <Row>
+            <Col sm="6" xs="12">
+            <Project
+                projectID="3"
+                image={require("../assets/images/testimage.jpeg")}
+                alt={""}
+                hovered={hovered}
+                onMouseEnter={()=>setHovered("3")}
+                onMouseLeave={()=>setHovered(null)}
+                ProjectSummary="TODO most in demand python libaries"
+                ProjectTitle="TODO most in demand python libaries"
+                ProjectLink="project3"
+                />  
+            </Col>
+
+            <Col sm="6" xs="12">
+            <Project
+                projectID="2"
+                image={require("../assets/images/testimage.jpeg")}
+                alt={""}
+                hovered={hovered}
+                onMouseEnter={()=>setHovered("2")}
+                onMouseLeave={()=>setHovered(null)}
+                ProjectSummary="How might we create an android/ios App?"
+                ProjectTitle="SeekDo: Dating for Activities"
+                ProjectLink="seekdo"
+                />  
+            </Col>
+        </Row>
+
+
     </Container>
 
-        </div>
         </>
     )
 }
 
-function Intro(){
+
+
+
+
+
+
+
+
+
+
+
+function Project(props){
 
     return(
-        <>
-        <p>
-        A software developer with experience across a range of industries,
-         who is used to engaging with C-Levels on a daily basis in order to achieve business objectives.
-          I am looking for a role where I will learn more about the technologies shaping the future and help
-           to drive change / add value to our clients by offering solutions where technology can be used to 
-           enhance business performance. In my most recent role, I have developed my project management skills,
-            managing multiple projects with different clients simultaneously ensuring everything runs smoothly to meet
-             required deadlines.
+        <NavLink to={props.ProjectLink}>
+        <div className="mainProjectImageContainer"
+        onMouseOver={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+        >
+            <div className="ProjectIMGContainer">
 
-        </p>
+            {props.hovered === props.projectID &&
+            <div className="overtint"></div>
+            }
+                <img 
+                src={props.image}
+                alt={props.alt}
+             
+                className="ProjectImage"
+            
+                /> 
 
-        </>
+                {props.hovered === props.projectID  &&
+                <h1 className="ProjectImageText"> Project {props.ProjectSummary} </h1>
+                }
+            </div>
+            
+            <h3
+            className={props.hovered=== props.projectID ? "projectTitleActive" : "projectTitle" }
+            > {props.ProjectTitle} </h3>
+                
+    </div>
+    </NavLink>
     )
 }
 
-function Project1(){
-    return(
-        <div >
-            <h3> Example Project</h3>
-            <img 
-                alt="..." 
-                src={require("../assets/images/testimage.jpeg")}
-                className="testImage"
-                />
-        <Intro/>
 
-        </div>
-    )
-}
+
+
+
