@@ -60,13 +60,13 @@ export default function Main(){
         <Collapse isOpen={!collapsed} navbar>
             <Nav className="navStyle" navbar>
             <NavItem className="navitem">
-              <NavLink tag={Link} to="/projects" id="projects"  onClick={() => { startChangeVis('projects')}} className={acn1}>Projects</NavLink>
+              <NavLink tag={Link} to="/projects" id="projects"  onClick={() => { startChangeVis('projects'); setCollapsed(true)}} className={acn1}>Projects</NavLink>
             </NavItem>
             <NavItem className="navitem">
-              <NavLink tag={Link} to="/about"  id="about"  onClick={() => { startChangeVis('about')}} className={acn2}>About</NavLink>
+              <NavLink tag={Link} to="/about"  id="about"  onClick={() => { startChangeVis('about'); setCollapsed(true)}} className={acn2}>About</NavLink>
             </NavItem>
             <NavItem className="navitem" >
-              <NavLink tag={HashLink} to="/about#contactMe"  id="contact" onClick={() => { startChangeVis('contact')}} >Contact</NavLink>
+              <NavLink tag={HashLink} to="/about#contactMe"  id="contact" onClick={() => { startChangeVis('contact'); setCollapsed(true)}} >Contact</NavLink>
             </NavItem>
           </Nav>
           </Collapse>
@@ -86,7 +86,6 @@ export default function Main(){
           </div>
       </div>
       </HashRouter>
-      <Footer/>
       </>
     )
 }

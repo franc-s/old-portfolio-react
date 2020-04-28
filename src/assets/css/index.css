@@ -12,78 +12,98 @@
 }
 .navStyle{
   margin-left: auto;
+  color: black;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
-  color: black;
-
-
 }
 
-.navMainContainer  {
-  margin-left: auto;
-  margin-right: 20px;
-}
 
 .navitem{
   display: inline;
   margin-right: 40px;
 }
 
-
 .navBrand{
+  color: black;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  color: black;
-  font-size: 2rem;
+  font-size: 2vw;
 }
 
 /* -----------------LandingPage Section----------------- */
+
+
+/* Typewriter effect*/
+.cursor{animation:1s blink step-end infinite}@keyframes blink{from,to{color:transparent}50%{color:#000}}@-moz-keyframes blink{from,to{color:transparent}50%{color:#000}}@-webkit-keyframes blink{from,to{color:transparent}50%{color:#000}}@-ms-keyframes blink{from,to{color:transparent}50%{color:#000}}@-o-keyframes blink{from,to{color:transparent}50%{color:#000}}
+
+
+
+
 .LandingContainer{
   text-align: center;
 }
 
-.LandingContainerFullWidth {
-  text-align: center;
-  background-color: #36454F;
-  height: 60%;
-  min-height : 60vh;
-  margin-top: 5%;
-  margin-left: -30%;
-  margin-right: -30%;
-  margin-bottom: -15%;
-}
-
-
 .LandingTextContainer{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+ padding-top: 5vh;
 }
 
-.LandingTitle .LandingSubTitle{
+.LandingTitleContainer{
+  
+}
+
+
+
+
+.LandingTitle{
+  color: black;
+  font-size: 10vw;
+  font-weight: 400;
   font-family: 'Montserrat', sans-serif;
 }
-.LandingTitle{
-  color: white;
-  font-size: 4em;
+
+.LandingTitle1, .LandingTitle2, .LandingTitle3{
+  color: black;
+  font-size: 6vw;
   font-weight: 600;
   font-family: 'Montserrat', sans-serif;
 }
 
-.ButtonContainer{
-  padding-top: 3%;
+.LandingTitle1{
+  text-align: right;
 }
 
-.LandingSubTitle{
-  color: white;
-  padding: 1%;
-  font-size: 2rem;
+.LandingTitle2{
+  text-align: right;
+}
+.LandingTitle3{
+  text-align: right;
+}
+
+
+.subTitleButtonContainer{
+  text-align: left;
+  padding-top: 3vh;
+}
+
+
+ .LandingSubTitle{
+  color: black;
+  font-size: 2vw;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 }
+
+
+
+.ButtonContainer{
+  margin-top: 5%;
+  text-align: right;
+padding-right: 5vw;
+
+}
+
+
 
 /* ----------------- About Section----------------- */
 
@@ -92,12 +112,12 @@
   justify-content: center;
   display:flex;
   padding: 5%;
-
+  padding-top: 10vh;
 }
 
 .ProfileImage{
   border-radius: 50%;
-  height: 60%;
+  height: 70%;
   width: 60%;
 }
 
@@ -142,6 +162,20 @@
 }
 
 /* -----------------Project Section----------------- */
+
+.projectIntroText{
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-weight: 400;
+  font-size: 1.3em;
+
+
+}
+
+.projectIntroText a{
+  color: black;
+  text-decoration: underline;
+}
 .mainProjectImageContainer{
   padding-top: 5%;
 }
@@ -183,9 +217,77 @@
   transform: translate(-50%, -50%);
 }
 
+.ProjectTitleDiv{
+  padding-top: 5vw;
+}
+
+.ProjectTitleDiv h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 3vw;
+
+}
+
+.ProjectTitleDiv h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.5vw;
+}
+
+.ProjectTitleDiv p{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.3vw;
+  color: #000;
+}
+
+.techDiv {  
+margin: 0.3vw;
+
+}
+
+.techGroupDiv{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.techDiv h4 {
+  padding: 0.7vw;
+  background-color: rgba(92, 151, 191, 1);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.5vw;
+  color: white;
+  border: 1px solid black;
+
+}
+
+
 /* -----------------Mobile Responsive Section----------------- */
 @media screen and (max-width: 600px) {
   .navBrand {
     font-size: 5vw;
+  }
+
+  .LandingTitle1, .LandingTitle2, .LandingTitle3{ 
+    font-size: 5vh;
+
+  }
+.LandingTextContainer{
+  margin-top: 10vh;
+}
+  .LandingSubTitle{
+    font-size: 2vh;
+
+  }
+
+  .foundedBio{
+
+    font-size: 4vw;
+
+  }
+  .sellingPoints p, .sellingPoints b {
+    font-size: 4vw;
+
   }
 }

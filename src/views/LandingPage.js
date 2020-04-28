@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import {
     Link,
   } from "react-router-dom";
@@ -6,7 +6,7 @@ import {
 import { withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Container } from 'reactstrap';
-
+import TypeWriter from '../components/TypeWriter.js'
 
 export default function LandingPage(props){
 
@@ -19,13 +19,11 @@ export default function LandingPage(props){
             
             boxShadow: 'none',
             textTransform: 'none',
-            fontSize: 16,
-            padding: '6px 12px',
-            border: '1px solid',
+            fontSize: '2vw',
             lineHeight: 1.5,
             backgroundColor: 'white',
             borderColor: 'black',
-            padding:'2%',
+            borderBottom:'1px solid',
             fontWeight:600,
             fontFamily: [
                 'Montserrat',
@@ -33,18 +31,13 @@ export default function LandingPage(props){
     
             ].join(','),
             '&:hover': {
-              backgroundColor: '#0069d9',
-              borderColor: '#0062cc',
-              boxShadow: 'none',
+              borderBottom:'',
             },
             '&:active': {
-              boxShadow: 'none',
-              backgroundColor: '#0062cc',
-              borderColor: '#005cbf',
+              borderBottom:'',
+
             },
-            '&:focus': {
-                boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-              },
+           
         },
       })(Button);
 
@@ -53,19 +46,30 @@ export default function LandingPage(props){
         <div className="LandingContainerFullWidth">
 
             <div className="LandingTextContainer">
-                <h2 className="LandingTitle">Full-Stack Developer</h2>
-
-                <h4 className="LandingSubTitle">
-                    "Changing the world, one line at a time"
-                    </h4>
-                
-                <div className="ButtonContainer">
-                <BootstrapButton variant="contained" component={Link} to="/projects"  onClick={props.onClick()} > VIEW MY WORK</BootstrapButton>
+                <div className="LandingTitleContainer">
+                  <h2 className="LandingTitle1">FULL </h2>
+                  <h2 className="LandingTitle2">STACK</h2>
+                  <h2 className="LandingTitle3">DEVELOPER</h2>
                 </div>
 
+
+                <div className="subTitleButtonContainer">
+                  <h4 className="LandingSubTitle">
+                  I make web and mobile software. 
+                  {TypeWriter(" Need help transforming your ideas into successful digital products?")}
+                  </h4>
+          
+                </div>
+                <div className="ButtonContainer">
+                  <BootstrapButton  component={Link} to="/projects"  onClick={props.onClick()} > Learn More</BootstrapButton>
+                  </div>
             </div>
 
         </div> 
         </>      
     )
 }
+
+
+
+

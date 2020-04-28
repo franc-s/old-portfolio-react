@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import {
     NavLink,
   } from "react-router-dom";
+  import { HashLink  } from 'react-router-hash-link';
 
 
 
@@ -18,63 +19,20 @@ export default function ProjectPage(){
 
         <Row>
             <Col sm="6" xs="12">
+            <div className="projectIntroText">
             <p>
-            Here is a collection of some of the projects I have worked on recently.
-            Want to see more?(contact me link)
-            </p>
-
-            <b> ADD LOGOS Of core things 
-                e.g. Fast, Responsive, Intuitive, Dynamic 
-            </b>
-
-            <Project
-                projectID="1"
-                href=""
-                image={require("../assets/images/testimage.jpeg")}
-                alt={""}
-                hovered={hovered}
-                onMouseEnter={()=>setHovered("1")}
-                onMouseLeave={()=>setHovered(null)}
-                ProjectSummary="How might we integrate deep learning into our site?"
-                ProjectTitle="HarvestMate: Apple Prediction"
-                ProjectLink="harvestmate"
-                />
-  
-            </Col>
-
-            <Col sm="6" xs="12">
-            <Project
-                projectID="4"
-                image={require("../assets/images/testimage.jpeg")}
-                alt={""}
-                hovered={hovered}
-                onMouseEnter={()=>setHovered("4")}
-                onMouseLeave={()=>setHovered(null)}
-                ProjectSummary="TODO Machine learning Project"
-                ProjectTitle="TODO Machine learning Project"
-                ProjectLink="project4"
-                />    
-            </Col>
-        </Row>
-
-
-
-        <Row>
-            <Col sm="6" xs="12">
-            <Project
-                projectID="3"
-                image={require("../assets/images/testimage.jpeg")}
-                alt={""}
-                hovered={hovered}
-                onMouseEnter={()=>setHovered("3")}
-                onMouseLeave={()=>setHovered(null)}
-                ProjectSummary="TODO most in demand python libaries"
-                ProjectTitle="TODO most in demand python libaries"
-                ProjectLink="project3"
-                />  
-            </Col>
-
-            <Col sm="6" xs="12">
+            Here is a collection of some of the projects I have worked on recently. <br/>
+            My highest priority is <b> Fast Load</b> times and lag free interaction.
+             My layouts will be <b>Responsive</b>, so they will be accessible on any device big or small.
+            I strive for an easy to use and <b> Intuitive UX. </b>. I enjoy making my web apps <b>Dynamic</b> by
+              making them come to life. <br/> Unless explicity stated otherwise, all of their back-end and front-end parts were completely done by be.
+       
+             </p>
+             <HashLink to="/about#contactMe">
+            Want to see more?
+            </HashLink>
+            </div>
+ 
             <Project
                 projectID="2"
                 image={require("../assets/images/testimage.jpeg")}
@@ -87,7 +45,39 @@ export default function ProjectPage(){
                 ProjectLink="seekdo"
                 />  
             </Col>
+
+            <Col sm="6" xs="12">
+            <Project
+                projectID="1"
+                href=""
+                image={require("../assets/images/testimage.jpeg")}
+                alt={""}
+                hovered={hovered}
+                onMouseEnter={()=>setHovered("1")}
+                onMouseLeave={()=>setHovered(null)}
+                ProjectSummary="How might we integrate deep learning into our site?"
+                ProjectTitle="HarvestMate: Apple Prediction"
+                ProjectLink="harvestmate"
+                />
+                            <Project
+                projectID="4"
+                image={require("../assets/images/testimage.jpeg")}
+                alt={""}
+                hovered={hovered}
+                onMouseEnter={()=>setHovered("4")}
+                onMouseLeave={()=>setHovered(null)}
+                ProjectSummary="TODO Machine learning Project"
+                ProjectTitle="TODO Machine learning Project"
+                ProjectLink="project4"
+                />   
+            </Col>
+
+
+
         </Row>
+
+
+
 
 
     </Container>
@@ -129,7 +119,7 @@ function Project(props){
                 /> 
 
                 {props.hovered === props.projectID  &&
-                <h1 className="ProjectImageText"> Project {props.ProjectSummary} </h1>
+                <h1 className="ProjectImageText">  {props.ProjectSummary} </h1>
                 }
             </div>
             
