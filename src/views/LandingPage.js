@@ -3,43 +3,13 @@ import {
     Link,
   } from "react-router-dom";
 
-import { withStyles} from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import { Container } from 'reactstrap';
+
 import TypeWriter from '../components/TypeWriter.js'
+import Footer from '../components/Footer'
 
 export default function LandingPage(props){
 
-    
-    const BootstrapButton = withStyles({
 
-        
-        root: {
-
-            
-            boxShadow: 'none',
-            textTransform: 'none',
-            fontSize: '2vw',
-            lineHeight: 1.5,
-            backgroundColor: 'white',
-            borderColor: 'black',
-            borderBottom:'1px solid',
-            fontWeight:600,
-            fontFamily: [
-                'Montserrat',
-              'sans-serif',
-    
-            ].join(','),
-            '&:hover': {
-              borderBottom:'',
-            },
-            '&:active': {
-              borderBottom:'',
-
-            },
-           
-        },
-      })(Button);
 
     return(
         <>
@@ -47,25 +17,32 @@ export default function LandingPage(props){
 
             <div className="LandingTextContainer">
                 <div className="LandingTitleContainer">
-                  <h2 className="LandingTitle1">FULL </h2>
-                  <h2 className="LandingTitle2">STACK</h2>
-                  <h2 className="LandingTitle3">DEVELOPER</h2>
+                  <h1 >FULL </h1>
+                  <h1 >STACK</h1>
+                  <h1>DEVELOPER</h1>
                 </div>
-
-
-                <div className="subTitleButtonContainer">
-                  <h4 className="LandingSubTitle">
+       
+                <div className="subTitleContainer">
+                  <h6 className="LandingSubTitle">
                   I make web and mobile software. 
                   {TypeWriter(" Need help transforming your ideas into successful digital products?")}
-                  </h4>
-          
+                  </h6>
                 </div>
+          
                 <div className="ButtonContainer">
-                  <BootstrapButton  component={Link} to="/projects"  onClick={props.onClick()} > Learn More</BootstrapButton>
-                  </div>
-            </div>
 
-        </div> 
+                  <Link onClick={props.onClick()} to="/projects" className="landingButton" style={{ textDecoration: 'none',color:'black' }}>
+                    <a>
+                    Learn More
+                    </a>
+                  </Link>
+
+                  </div>
+       
+            </div>
+ 
+        </div>
+        <Footer/> 
         </>      
     )
 }

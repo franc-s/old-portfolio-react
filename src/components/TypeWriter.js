@@ -10,8 +10,8 @@ export default function Typewriter (srcString) {
       const delay = setTimeout(() => {
         setContent({content:content+srcString[carriage], carriage: carriage+1})
         clearTimeout(delay)
-      }, 0|(Math.random()*200+50))
+      }, 0|(Math.random()*100+50))
     }, [content])
     
-    return <span>{content}<span className="cursor">|</span></span>
+    return <span>{content} <span className="cursor">|</span> </span>
 }

@@ -4,7 +4,11 @@ import {
     NavLink,
   } from "react-router-dom";
   import { HashLink  } from 'react-router-hash-link';
-
+import Footer from '../components/Footer'
+import SpeedIcon from '@material-ui/icons/Speed';
+import DevicesIcon from '@material-ui/icons/Devices';
+import WbIncandescentIcon from '@material-ui/icons/WbIncandescent';
+import WavesIcon from '@material-ui/icons/Waves';
 
 
 
@@ -16,38 +20,29 @@ export default function ProjectPage(){
     return(
         <>
         <Container>
+        <div className="mainProjectContainer">
 
         <Row>
-            <Col sm="6" xs="12">
+            <Col sm="12" md="6" xs="12">
             <div className="projectIntroText">
-            <p>
-            Here is a collection of some of the projects I have worked on recently. <br/>
-            My highest priority is <b> Fast Load</b> times and lag free interaction.
-             My layouts will be <b>Responsive</b>, so they will be accessible on any device big or small.
-            I strive for an easy to use and <b> Intuitive UX. </b>. I enjoy making my web apps <b>Dynamic</b> by
-              making them come to life. <br/> Unless explicity stated otherwise, all of their back-end and front-end parts were completely done by be.
+
+            <h3> I strive for: </h3>
+            <ul>
+            <li> <SpeedIcon className="projectIntroIcons"/> Fast Loading</li>
+            <li> <DevicesIcon className="projectIntroIcons"/> Screen Responsive</li>
+            <li> <WbIncandescentIcon className="projectIntroIcons"/> Intuitive Design</li>
+            <li> <WavesIcon className="projectIntroIcons"/> Dynamic Features</li>
+            </ul>
        
-             </p>
+       
              <HashLink to="/about#contactMe">
             Want to see more?
             </HashLink>
             </div>
  
-            <Project
-                projectID="2"
-                image={require("../assets/images/testimage.jpeg")}
-                alt={""}
-                hovered={hovered}
-                onMouseEnter={()=>setHovered("2")}
-                onMouseLeave={()=>setHovered(null)}
-                ProjectSummary="How might we create an android/ios App?"
-                ProjectTitle="SeekDo: Dating for Activities"
-                ProjectLink="seekdo"
-                />  
-            </Col>
+     
 
-            <Col sm="6" xs="12">
-            <Project
+                <ProjectHover
                 projectID="1"
                 href=""
                 image={require("../assets/images/testimage.jpeg")}
@@ -55,21 +50,29 @@ export default function ProjectPage(){
                 hovered={hovered}
                 onMouseEnter={()=>setHovered("1")}
                 onMouseLeave={()=>setHovered(null)}
-                ProjectSummary="How might we integrate deep learning into our site?"
+                ProjectSummary="How might we integrate deep learning into our Web Apps?"
                 ProjectTitle="HarvestMate: Apple Prediction"
                 ProjectLink="harvestmate"
                 />
-                            <Project
-                projectID="4"
-                image={require("../assets/images/testimage.jpeg")}
+
+            </Col>
+
+            <Col sm="12" md="6" xs="12">
+     
+            <ProjectHover
+                projectID="2"
+                image={require("../assets/images/Project/1Splash.png")}
                 alt={""}
                 hovered={hovered}
-                onMouseEnter={()=>setHovered("4")}
+                onMouseEnter={()=>setHovered("2")}
                 onMouseLeave={()=>setHovered(null)}
-                ProjectSummary="TODO Machine learning Project"
-                ProjectTitle="TODO Machine learning Project"
-                ProjectLink="project4"
-                />   
+                ProjectSummary="How might we create a cross-platform Mobile App?"
+                ProjectTitle="SeekDo: Dating for Activities"
+                ProjectLink="seekdo"
+                />  
+
+                
+     
             </Col>
 
 
@@ -79,9 +82,12 @@ export default function ProjectPage(){
 
 
 
-
+        </div>
     </Container>
 
+    <Footer
+    showLinkedin={true}
+    />
         </>
     )
 }
@@ -97,7 +103,7 @@ export default function ProjectPage(){
 
 
 
-function Project(props){
+function ProjectHover(props){
 
     return(
         <NavLink to={props.ProjectLink}>
@@ -113,19 +119,17 @@ function Project(props){
                 <img 
                 src={props.image}
                 alt={props.alt}
-             
-                className="ProjectImage"
-            
+                         
                 /> 
 
                 {props.hovered === props.projectID  &&
-                <h1 className="ProjectImageText">  {props.ProjectSummary} </h1>
+                <h3 className="ProjectImageText">  {props.ProjectSummary} </h3>
                 }
             </div>
             
-            <h3
+            <h4
             className={props.hovered=== props.projectID ? "projectTitleActive" : "projectTitle" }
-            > {props.ProjectTitle} </h3>
+            > {props.ProjectTitle} </h4>
                 
     </div>
     </NavLink>
