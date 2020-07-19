@@ -65,7 +65,7 @@ export default function AboutPage(){
             <div className="bioContainer">
             <p >
                 "Hi my name is Francis, I am a software engineer with experience across a range of industries. 
-                I engage with C-Levels to achieve business objectives. In the past I have worked with Darktrace,
+                I enjoy using technology to solve problems and achieve business objectives. In the past I have worked with Darktrace,
                  a world leader in AI Cyber Security, and Bank of America" 
                 </p>
             </div>

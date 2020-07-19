@@ -61,7 +61,7 @@ export default function ProjectPage(){
      
             <ProjectHover
                 projectID="2"
-                image={require("../assets/images/Project/1Splash.png")}
+                image={require("../assets/images/Project/1.png")}
                 alt={""}
                 hovered={hovered}
                 onMouseEnter={()=>setHovered("2")}

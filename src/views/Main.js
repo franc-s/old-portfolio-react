@@ -14,6 +14,7 @@ import {
     Collapse
   } from 'reactstrap';
 import { HashLink  } from 'react-router-hash-link';
+import Analytics from 'react-router-ga';
 
 import AboutPage from "./AboutPage";
 import LandingPage from "./LandingPage";
@@ -52,6 +53,7 @@ export default function Main(){
         <>
  
         <HashRouter>
+        <Analytics id="G-88SV84T1KX" debug>
         <div className="navMainContainer">
         <Navbar light expand="md">
         <NL className="navBrand" to="/" id="nav" onClick={() => { startChangeVis('nav')}} >Francis de Lima</NL>
@@ -115,7 +117,7 @@ export default function Main(){
       </div>
 
 
-
+      </Analytics>
       </HashRouter>
       </>
     )
