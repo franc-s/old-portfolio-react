@@ -1,9 +1,9 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import {
     Route,
-    HashRouter,
     Link,
-    NavLink as NL
+    NavLink as NL,
+    useLocation
   } from "react-router-dom";
 import {
     Navbar,
@@ -14,7 +14,6 @@ import {
     Collapse
   } from 'reactstrap';
 import { HashLink  } from 'react-router-hash-link';
-import Analytics from 'react-router-ga';
 
 import AboutPage from "./AboutPage";
 import LandingPage from "./LandingPage";
@@ -26,9 +25,26 @@ import Seekdo from './Projects/Seekdo'
 import Project3 from './Projects/Project3'
 import Project4 from './Projects/Project4'
 import Modal from '../components/Modal'
+import firebase from '../firebase'
+import ReactGA from 'react-ga';
+
+const analytics = firebase.analytics;
 
 
-export default function Main(){
+ReactGA.initialize(process.env.REACT_APP_GA);
+
+function usePageViews() {
+  let location = useLocation();
+
+  useEffect(() => {
+    analytics().setCurrentScreen(location.pathname) // sets `screen_name` parameter
+    analytics().logEvent('screen_view') // log event with `screen_name` parameter attached
+    ReactGA.pageview(location.pathname + location.search);
+
+  }, [location]);
+}
+
+export default function App(){
 
   const [collapsed, setCollapsed] = useState(true);
   const [show, setShow] = useState(false)
@@ -45,15 +61,9 @@ export default function Main(){
         else if(id === 'contact') return 1;
         else if(id === 'nav') return 1;
       }
+      usePageViews();
 
-
-     
-
-    return(
-        <>
- 
-        <HashRouter>
-        <Analytics id="G-88SV84T1KX" debug>
+    return( 
         <div className="navMainContainer">
         <Navbar light expand="md">
         <NL className="navBrand" to="/" id="nav" onClick={() => { startChangeVis('nav')}} >Francis de Lima</NL>
@@ -110,16 +120,7 @@ export default function Main(){
   
 
         </Modal>
- 
-
-
-
-      </div>
-
-
-      </Analytics>
-      </HashRouter>
-      </>
+      </div>      
     )
 }
 
