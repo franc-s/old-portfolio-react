@@ -1,4 +1,4 @@
-# This contains my old Portfolio written in React.JS
+This contains my OLD Portfolio written in React.JS
 
 # Reasons for making redudant and updating
 - Styling is unclear, my new website uses syled components
